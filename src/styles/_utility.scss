@@ -1,7 +1,11 @@
 $base-text-size: 16px;
 $base-font-family: sans-serif;
+$purplenavy: #4e598c;
+$white: #FFFFFF;
+$topaz: #f9c784;
+$rajah: #fcaf58;
+$mango: #ff8c42;
 
-// Remove the browsers built-in styling for lists elements.
 @mixin reset-list {
   padding-left: 0;
 
@@ -10,8 +14,6 @@ $base-font-family: sans-serif;
   }
 }
 
-// Apply a height to the html and body elements to that they
-// fill the height of the view by default.
 @mixin full-height {
   height: 100%;
 
