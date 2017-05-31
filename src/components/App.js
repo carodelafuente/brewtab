@@ -15,10 +15,11 @@ class App extends Component {
   render () {
     return <Router>
       <div className='App'>
-        <h1> <NavLink to='/'> Brewtab </NavLink> </h1>
+        { auth.isSignedIn ? <h1> <NavLink to='/'> <img width='70px' src='../images/logo1.png' /> Brewtab </NavLink> </h1> : <h1> <NavLink to='/'> Brewtab </NavLink> </h1> }
+        {/* <h1> <NavLink to='/'> <img width='70px' src='../images/logo1.png' /> Brewtab </NavLink> </h1> */}
         <main>
-          {auth.isSignedIn ? <Route path='/' component={Home} /> : <Route exact path='/' component={Splash} /> }
           <Switch>
+            {auth.isSignedIn ? <Route exact path='/' component={Home} /> : <Route exact path='/' component={Splash} /> }
             <Route path='/add' component={Add} />
             <Route path='/tabs' component={Tabs} />
             <Route path='/favorites' component={Favorites} />

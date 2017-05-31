@@ -24,7 +24,11 @@ class BeerList extends Component {
   }
 
   _addFav = (e) => {
-    console.log('added!')
+    console.log('added fav!')
+  }
+
+  _addTab = (e) => {
+    console.log('added to tabs!')
   }
 
   render () {
@@ -37,6 +41,7 @@ class BeerList extends Component {
             <h4> ABV: {abv} </h4>
             <p>{description}</p>
             <button onClick={this._addFav}> Add to your Favs! </button>
+            <button onClick={this._addTab}> Add to your Tabs! </button>
           </li>
         ))}
       </ul>

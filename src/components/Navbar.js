@@ -8,10 +8,11 @@ import auth from '../auth'
 class Navbar extends Component {
   render () {
     return <div className='Navbar'>
-      <Link to='/'> Home </Link> |
-      <Link to='/add'> Add </Link> |
-      <Link to='/favorites'> Favs </Link> |
-      <a onClick={() => auth.signOut()} href='/'> Sign Out </a> { auth.isSignedIn ? <img width='50px' src={auth.profile.picture} /> : '' }
+      <Link to='/add'> Search </Link>
+      <Link to='/tabs'> Tabs </Link>
+      <Link to='/favorites'> Favorites </Link>
+      <Link to='/'> About </Link>
+      <a onClick={() => auth.signOut()} href='/'> { auth.isSignedIn ? <img width='50px' src={auth.profile.picture} /> : '' } </a>
     </div>
   }
 }
