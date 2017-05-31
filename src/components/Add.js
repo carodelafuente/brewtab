@@ -17,9 +17,9 @@ class Add extends Component {
 
   render () {
     return <div className='Add'>
-      <span> Find a Beer: </span>
-      <form onSubmit={this._submit}>
-        <input ref='query' placeholder='Search...' />
+      <span> FIND A BEER: </span>
+      <form onSubmit={this._submit} className='form-wrapper cf'>
+        <input ref='query' placeholder='Search...' required /> <button type='submit' > Search </button>
       </form>
       <div className='searchResult' />
     </div>

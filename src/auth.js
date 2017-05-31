@@ -1,6 +1,7 @@
 import Auth0Lock from 'auth0-lock'
 import IdTokenVerifier from 'idtoken-verifier'
 import { observable, autorun, computed, action } from 'mobx'
+import { mutation } from './api'
 
 const CLIENT_ID = 'c4BMDGFG1Q_z1y8qs9LiuTVguR0Fd1wk'
 const CLIENT_DOMAIN = 'carodelafuente.auth0.com'
@@ -8,6 +9,7 @@ const CLIENT_DOMAIN = 'carodelafuente.auth0.com'
 class Auth {
   @observable token
   @observable profile
+  @observable userId
 
   constructor () {
     this.token = window.localStorage.getItem('auth:token')
@@ -31,6 +33,7 @@ class Auth {
 
     autorun(() => {
       this.checkExpiration()
+      this.createUser()
       if (this.isSignedIn) {
         window.localStorage.setItem('auth:token', this.token)
         window.localStorage.setItem('auth:profile', JSON.stringify(this.profile))
@@ -65,9 +68,41 @@ class Auth {
   }
 
   @computed get isSignedIn () {
-    return this.token && this.profile
+    return this.token && this.profile && this.userId
+  }
+
+  @action createUser () {
+    console.log('is this running')
+    if (this.token) {
+      console.log('YES')
+      mutation(`signinUser(auth0: { idToken: "${this.token}" }) {
+        user {
+          id
+        }
+      }`).then(({ data }) => {
+        if (data) {
+          this.userId = data.signinUser.user.id
+        } else {
+          mutation(`
+            createUser(authProvider: {
+              auth0: {
+                idToken: "${this.token}"
+              }
+            }) {
+              id
+            }
+            signinUser(auth0: { idToken: "${this.token}" }) {
+              token
+            }
+          `).then(({ data }) => {
+            this.userId = data.createUser.id
+          })
+        }
+      })
+    }
   }
 }
 
 const auth = new Auth()
+window.auth = auth
 export default auth

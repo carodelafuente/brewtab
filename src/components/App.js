@@ -15,7 +15,7 @@ class App extends Component {
   render () {
     return <Router>
       <div className='App'>
-        { auth.isSignedIn ? <h1> <NavLink to='/'> <img width='70px' src='../images/logo1.png' /> Brewtab </NavLink> </h1> : <h1> <NavLink to='/'> Brewtab </NavLink> </h1> }
+        { auth.isSignedIn ? <h1> <NavLink to='/'> <img width='60px' src='../images/logo1.png' /> Brewtab </NavLink> </h1> : <h1> <NavLink to='/'> Brewtab </NavLink> </h1> }
         {/* <h1> <NavLink to='/'> <img width='70px' src='../images/logo1.png' /> Brewtab </NavLink> </h1> */}
         <main>
           <Switch>

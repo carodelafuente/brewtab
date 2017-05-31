@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { query } from '../api'
+import { query, mutation } from '../api'
+import auth from '../auth'
 
 class BeerList extends Component {
   state = {
@@ -11,6 +12,7 @@ class BeerList extends Component {
     query(`allBeers(filter: {
       name_contains: "${q}"
     }) {
+      id
       name
       logo
       description
@@ -23,25 +25,37 @@ class BeerList extends Component {
     })
   }
 
-  _addFav = (e) => {
-    console.log('added fav!')
+  _addFav = (id) => {
+    mutation(`
+      createTab(beerId: "${id}", userId: "${auth.userId}", favorite: true) {
+        id
+      }
+    `).then(() => {
+      this.props.history.push('/favorites')
+    })
   }
 
-  _addTab = (e) => {
-    console.log('added to tabs!')
+  _addTab = (id) => {
+    mutation(`
+      createTab(beerId: "${id}", userId: "${auth.userId}", favorite: false) {
+        id
+      }
+    `).then(() => {
+      this.props.history.push('/tabs')
+    })
   }
 
   render () {
     return <div className='BeerList'>
       <ul>
-        {this.state.beer.map(({ slug, name, description, logo, abv }, i) => (
+        {this.state.beer.map(({ id, slug, name, description, logo, abv }, i) => (
           <li key={i}>
             <h3>{name}</h3>
             <img src={logo} />
             <h4> ABV: {abv} </h4>
             <p>{description}</p>
-            <button onClick={this._addFav}> Add to your Favs! </button>
-            <button onClick={this._addTab}> Add to your Tabs! </button>
+            <button onClick={() => this._addFav(id)}> Add to your Favs! </button>
+            <button onClick={() => this._addTab(id)}> Add to your Tabs! </button>
           </li>
         ))}
       </ul>
