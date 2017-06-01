@@ -16,6 +16,11 @@ class Tabs extends Component {
           id
           beer {
             name
+            id
+            logo
+            description
+            slug
+            abv
           }
         }
       `).then(({ data }) => {
@@ -27,12 +32,16 @@ class Tabs extends Component {
   }
 
   render () {
-    return <div className='Tabs'>
+    return <div className='Tabs BeerList'>
       Tabs
       <ul>
         {this.state.tabs.map((tab) => {
           console.log(tab)
-          return <li key={tab.id}>{tab.beer.name}</li>
+          return <li key={tab.id}>
+            <h3>{tab.beer.name}</h3>
+            <img src={tab.beer.logo} />
+            <h4> ABV: {tab.beer.abv} </h4>
+          </li>
         })}
       </ul>
     </div>

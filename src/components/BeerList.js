@@ -54,7 +54,7 @@ class BeerList extends Component {
             <img src={logo} />
             <h4> ABV: {abv} </h4>
             <p>{description}</p>
-            <button onClick={() => this._addFav(id)}> Add to your Favs! </button>
+            <button onClick={() => this._addFav(id)}> <i className='fa fa-star-o' aria-hidden='true' /> </button>
             <button onClick={() => this._addTab(id)}> Add to your Tabs! </button>
           </li>
         ))}
