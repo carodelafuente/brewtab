@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import { query } from '../api'
 import auth from '../auth'
+import Carousel from 'nuka-carousel'
 
 @observer
 class Tabs extends Component {
@@ -34,16 +35,15 @@ class Tabs extends Component {
   render () {
     return <div className='Tabs BeerList'>
       Tabs
-      <ul>
+      <Carousel>
         {this.state.tabs.map((tab) => {
-          console.log(tab)
-          return <li key={tab.id}>
+          return <div key={tab.id} className='beerSlide'>
             <h3>{tab.beer.name}</h3>
             <img src={tab.beer.logo} />
             <h4> ABV: {tab.beer.abv} </h4>
-          </li>
+          </div>
         })}
-      </ul>
+      </Carousel>
     </div>
   }
 }

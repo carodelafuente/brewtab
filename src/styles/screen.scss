@@ -126,6 +126,12 @@ body {
     flex-direction: column;
     align-items: center;
 
+    .welcomeName {
+      border-bottom: 1px solid #333;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
     .homeBox {
       padding: 8px;
       // overflow-y: scroll;
@@ -146,16 +152,32 @@ body {
       }
 
       a {
-        margin-top: 10px;
+        margin-top: 20px;
         text-decoration: none;
         font-size: 12px;
+        text-align: center;
+        padding: 10px;
+        width: 100px;
+        border: 1px solid $rajah;
+        border-radius: 10px;
+
+        &:visited {
+          color: #fff;
+        }
+        &:hover {
+          color: $rajah;
+        }
       }
     }
 
     img {
-      // border-radius: 100px;
+      width: 80px;
     }
+  }
 
+  .Tabs, .BeerList {
+     box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+     width: 300px;
   }
 
   .Add {
@@ -277,6 +299,15 @@ overflow: visible;
     border-radius: 10px;
     // box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
 
+    button {
+      border: 1px solid rgba(0,0,0, 0.2);
+      background-color: transparent;
+      border-radius: 10px;
+      padding: 5px;
+      margin: 2px;
+
+    }
+
     ul {
       list-style: none;
     }
@@ -288,4 +319,22 @@ overflow: visible;
       border: 1px dashed #333;
     }
   }
+}
+
+.Tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  .slider {
+    flex: 1;
+  }
+}
+
+.beerSlide {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

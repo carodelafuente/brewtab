@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { query, mutation } from '../api'
 import auth from '../auth'
+import Carousel from 'nuka-carousel'
 
 class BeerList extends Component {
   state = {
@@ -47,18 +48,20 @@ class BeerList extends Component {
 
   render () {
     return <div className='BeerList'>
-      <ul>
-        {this.state.beer.map(({ id, slug, name, description, logo, abv }, i) => (
-          <li key={i}>
-            <h3>{name}</h3>
-            <img src={logo} />
-            <h4> ABV: {abv} </h4>
-            <p>{description}</p>
-            <button onClick={() => this._addFav(id)}> <i className='fa fa-star-o' aria-hidden='true' /> </button>
-            <button onClick={() => this._addTab(id)}> Add to your Tabs! </button>
-          </li>
+      <Carousel slidesToShow={this.state.beer.length}>
+        <ul>
+          {this.state.beer.map(({ id, slug, name, description, logo, abv }, i) => (
+            <li key={i}>
+              <h3>{name}</h3>
+              <img src={logo} />
+              <h4> ABV: {abv} </h4>
+              <p>{description}</p>
+              <button onClick={() => this._addFav(id)}> Add to your Favorites! </button>
+              <button onClick={() => this._addTab(id)}> Add to your Tabs! </button>
+            </li>
         ))}
-      </ul>
+        </ul>
+      </Carousel>
     </div>
   }
 }
