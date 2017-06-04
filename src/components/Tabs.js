@@ -34,8 +34,8 @@ class Tabs extends Component {
 
   render () {
     return <div className='Tabs BeerList'>
-      Tabs
-      <Carousel>
+      <span> Your Tabs </span>
+      <Carousel dragging className='carousel'>
         {this.state.tabs.map((tab) => {
           return <div key={tab.id} className='beerSlide'>
             <h3>{tab.beer.name}</h3>
