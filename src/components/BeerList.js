@@ -48,7 +48,7 @@ class BeerList extends Component {
 
   render () {
     return <div className='BeerList'>
-      <Carousel slidesToShow={this.state.beer.length}>
+      <Carousel className='carousel' slidesToShow={this.state.beer.length}>
         <ul>
           {this.state.beer.map(({ id, slug, name, description, logo, abv }, i) => (
             <li key={i}>
