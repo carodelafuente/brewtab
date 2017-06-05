@@ -30,7 +30,7 @@ class Favorites extends Component {
   }
   render () {
     return <div className='Favorites BeerList'>
-      Fav beers
+      <span> Favorites </span>
       <ul>
         {this.state.favorites.map((tab) => {
           return <li key={tab.id}>
