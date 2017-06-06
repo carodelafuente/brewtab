@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import auth from '../auth'
 import { query } from '../api'
+import Carousel from 'nuka-carousel'
 
 @observer
 class Favorites extends Component {
@@ -13,7 +14,7 @@ class Favorites extends Component {
     console.log(auth.isSignedIn)
     if (auth.isSignedIn) {
       query(`
-        allTabs(filter: { favorite: true }) {
+        allTabs(filter: { favorite: true, user: { id: "${auth.userId}" }}) {
           id
           beer {
             name
@@ -29,17 +30,17 @@ class Favorites extends Component {
     }
   }
   render () {
-    return <div className='Favorites BeerList'>
+    return <div className='Tabs BeerList'>
       <span> Favorites </span>
-      <ul>
+      <Carousel dragging className='carousel'>
         {this.state.favorites.map((tab) => {
-          return <li key={tab.id}>
-            <h3>{tab.beer.name}</h3>
+          return <div key={tab.id} className='beerSlide'>
+            <h5>{tab.beer.name}</h5>
             <img src={tab.beer.logo} />
-            <h4> ABV: {tab.beer.abv} </h4>
-          </li>
+            <h5> ABV: {tab.beer.abv} </h5>
+          </div>
         })}
-      </ul>
+      </Carousel>
     </div>
   }
 }

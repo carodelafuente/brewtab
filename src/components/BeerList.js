@@ -36,6 +36,7 @@ class BeerList extends Component {
   }
 
   _addTab = (id) => {
+    console.log('add tab!,', id)
     mutation(`
       createTab(beerId: "${id}", userId: "${auth.userId}", favorite: false) {
         id
