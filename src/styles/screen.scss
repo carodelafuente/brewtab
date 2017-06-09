@@ -216,7 +216,7 @@ body {
   }
 
   .BeerList {
-    height: 350px;
+    height: 380px;
     max-width: 500px;
     overflow-y: auto;
     margin: 0;
@@ -225,24 +225,56 @@ body {
     border-radius: 10px;
     // box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
 
+
     button {
-      border: 1px solid rgba(0,0,0, 0.2);
+      border: none;
       background-color: transparent;
-      border-radius: 10px;
       padding: 5px;
       margin: 2px;
+
+      &:hover {
+        border-bottom: 1px dashed #333;
+      }
 
     }
 
     ul {
       list-style: none;
+      margin: 0px;
+      padding: 0px;
     }
 
-    img {
+    li {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+      align-items: center;
+    }
+
+    .logo {
       width: 100px;
       border-radius: 100px;
       padding: 3px;
       border: 1px dashed #333;
+    }
+
+    h3 {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .space-around {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .buttons {
+      margin-left: 30px;
+    }
+
+    .add {
+      width: 20px;
     }
 
     .carousel {

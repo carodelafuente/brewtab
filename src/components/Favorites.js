@@ -36,7 +36,7 @@ class Favorites extends Component {
         {this.state.favorites.map((tab) => {
           return <div key={tab.id} className='beerSlide'>
             <h5>{tab.beer.name}</h5>
-            <img src={tab.beer.logo} />
+            <img className='logo' src={tab.beer.logo} />
             <h5> ABV: {tab.beer.abv} </h5>
           </div>
         })}

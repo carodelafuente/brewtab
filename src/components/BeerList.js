@@ -52,11 +52,15 @@ class BeerList extends Component {
         {this.state.beer.map(({ id, slug, name, description, logo, abv }, i) => (
           <li key={i}>
             <h3>{name}</h3>
-            <img src={logo} />
-            <h4> ABV: {abv} </h4>
+            <img className='logo' src={logo} />
+            <div className='space-around'>
+              <h4> ABV: {abv} </h4>
+              <div className='buttons'>
+                <button onClick={() => this._addFav(id)}> <img className='add' src='../images/fav.png' /> </button>
+                <button onClick={() => this._addTab(id)}> <img className='add' src='../images/add.png' /> </button>
+              </div>
+            </div>
             <p>{description}</p>
-            <button onClick={() => this._addFav(id)}> Add to your Favorites! </button>
-            <button onClick={() => this._addTab(id)}> Add to your Tabs! </button>
           </li>
         ))}
       </ul>
