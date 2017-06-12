@@ -16,7 +16,7 @@ class Favorites extends Component {
       query(`
         allTabs(filter: { favorite: true, user: { id: "${auth.userId}" }}) {
           id
-          beer {
+          beers {
             name
             logo
             abv
@@ -35,9 +35,9 @@ class Favorites extends Component {
       <Carousel dragging className='carousel'>
         {this.state.favorites.map((tab) => {
           return <div key={tab.id} className='beerSlide'>
-            <h5>{tab.beer.name}</h5>
-            <img className='logo' src={tab.beer.logo} />
-            <h5> ABV: {tab.beer.abv} </h5>
+            <h5>{tab.beers[0].name}</h5>
+            <img className='logo' src={tab.beers[0].logo} />
+            <h5> ABV: {tab.beers[0].abv} </h5>
           </div>
         })}
       </Carousel>

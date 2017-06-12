@@ -13,9 +13,9 @@ class Tabs extends Component {
   componentDidMount () {
     if (auth.isSignedIn) {
       query(`
-        allTabs(filter: { user:  id: "${auth.userId}" } }) {
+        allTabs(filter: { user: { id: "${auth.userId}" } }) {
           id
-          beer {
+          beers {
             name
             id
             logo
@@ -38,9 +38,9 @@ class Tabs extends Component {
       <Carousel dragging className='carousel'>
         {this.state.tabs.map((tab) => {
           return <div key={tab.id} className='beerSlide'>
-            <h4>{tab.beer.name}</h4>
-            <img src={tab.beer.logo} />
-            <h4> ABV: {tab.beer.abv} </h4>
+            <h4>{tab.beers[0].name}</h4>
+            <img className='logo' src={tab.beers[0].logo} />
+            <h4> ABV: {tab.beers[0].abv} </h4>
           </div>
         })}
       </Carousel>

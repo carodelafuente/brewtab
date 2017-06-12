@@ -202,16 +202,25 @@ body {
       }
     }
     .slider-decorator-2 {
-      margin-bottom: 20px;
+      // margin: 0px;
+      // padding: 0px;
+
+      li {
+        padding: 0px;
+        margin: 0px;
+      }
+      button {
+        padding: 0px;
+        margin: 0px;
+      }
     }
 
     .beerSlide {
-      height: 200px;
+      height: 250px;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin-top: 20px;
     }
   }
 
