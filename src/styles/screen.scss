@@ -1,5 +1,6 @@
 @import 'utility';
 @import 'add';
+@import 'tabs';
 
 $base-text-size: 16px;
 $base-font-family: sans-serif;
@@ -47,6 +48,7 @@ body {
     color: #fff;
     // flex: 1;
     font-size: 50px;
+    margin-bottom: 20px;
 
 
     a {
@@ -123,7 +125,7 @@ body {
     align-items: center;
 
     .welcomeName {
-      border-bottom: 1px solid #333;
+      font-size: 30px;
       margin-bottom: 10px;
       padding: 5px;
     }
@@ -153,9 +155,11 @@ body {
         font-size: 12px;
         text-align: center;
         padding: 10px;
-        width: 100px;
+        width: 150px;
         border: 1px solid $rajah;
+        background-color: $rajah;
         border-radius: 10px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.4);
 
         &:visited {
           color: #fff;
