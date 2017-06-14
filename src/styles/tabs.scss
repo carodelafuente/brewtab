@@ -1,0 +1,38 @@
+.beerBox {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
+  // margin: 10px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  justify-content: space-between;
+
+  .name {
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .abv {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    background-color: $mango;
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.1);
+    padding: 10px;
+    border-radius: 5px;
+
+    .abv2 {
+      border-bottom: 1px dashed #333;
+    }
+  }
+
+
+  .logoBox {
+    width: 60px;
+    border-radius: 100px;
+    padding: 3px;
+    // box-shadow: 1px 2px 0px 0px rgba(0,0,0,0.1);
+    margin: 10px;
+  }
+}
