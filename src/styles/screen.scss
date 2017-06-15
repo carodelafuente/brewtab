@@ -206,8 +206,10 @@ body {
       }
     }
     .slider-decorator-2 {
-      // margin: 0px;
-      // padding: 0px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
 
       li {
         padding: 0px;
