@@ -34,7 +34,7 @@ class Favorites extends Component {
       <span> Favorites </span>
       <Carousel dragging className='carousel'>
         {this.state.favorites.map((tab) => {
-          return <div key={tab.id} className='beerSlide'>
+          return <div key={tab.id} className='beerSlide slide'>
             <h5>{tab.beers[0].name}</h5>
             <img className='logo' src={tab.beers[0].logo} />
             <h5> ABV: {tab.beers[0].abv} </h5>

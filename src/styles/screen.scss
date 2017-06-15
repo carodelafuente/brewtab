@@ -125,7 +125,7 @@ body {
     align-items: center;
 
     .welcomeName {
-      font-size: 30px;
+      font-size: 25px;
       margin-bottom: 10px;
       padding: 5px;
     }
@@ -142,14 +142,13 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      // font-family: Gotham;
 
       span {
         text-align: center;
         font-weight: lighter;
       }
 
-      a {
+      .aLink {
         margin-top: 20px;
         text-decoration: none;
         font-size: 12px;
@@ -165,7 +164,7 @@ body {
           color: #fff;
         }
         &:hover {
-          color: $rajah;
+          color: #333;
         }
       }
     }
@@ -297,5 +296,20 @@ body {
     }
   }
 
+  .slide {
+  animation: slide 1s ease-in forwards;
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 }
