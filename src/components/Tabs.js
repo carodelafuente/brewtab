@@ -10,11 +10,19 @@ class Tabs extends Component {
   }
 
   componentDidMount () {
+    this.loadTabs()
+  }
+
+  componentWillReceiveProps (nextProps) {
+    this.loadTabs()
+  }
+
+  loadTabs () {
     if (auth.isSignedIn) {
       query(`
         allTabs(filter: { user: { id: "${auth.userId}" } }) {
           id
-          beers {
+          beer {
             name
             id
             logo
@@ -36,9 +44,9 @@ class Tabs extends Component {
       <span> Your Tabs </span>
       {this.state.tabs.map((tab) => {
         return <div key={tab.id} className='beerBox slide'>
-          <img className='logoBox' src={tab.beers[0].logo} />
-          <h4 className='name'> {tab.beers[0].name} </h4>
-          <h4 className='abv'> <div className='abv2'> ABV: </div> {tab.beers[0].abv} </h4>
+          <img className='logoBox' src={tab.beer.logo} />
+          <h4 className='name'> {tab.beer.name} </h4>
+          <h4 className='abv'> <div className='abv2'> ABV: </div> {tab.beer.abv} </h4>
         </div>
       })}
     </div>

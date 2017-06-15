@@ -28,13 +28,8 @@ class BeerList extends Component {
   _addFav = (id) => {
     console.log('Fav tab!,', id)
     mutation(`
-      createTab(beersIds: "${id}", userId: "${auth.userId}", favorite: true) {
+      createTab(beerId: "${id}", userId: "${auth.userId}", favorite: true) {
         id
-        beers {
-          name
-          logo
-          abv
-        }
       }
     `).then(() => {
       this.props.history.push('/favorites')
